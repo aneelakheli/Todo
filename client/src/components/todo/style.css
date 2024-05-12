@@ -1,0 +1,17 @@
+.todo-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: yellow;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .todo-content {
+    flex: 1;
+  }
+  
+  .todo-actions button {
+    margin-left: 5px;
+  }
