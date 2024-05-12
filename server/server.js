@@ -3,9 +3,12 @@ const express = require("express");
 const connectDB = require("./config/db");
 const bodyParser = require("body-parser");
 const app = express();
+const cors = require("cors");
+const TodoRouter = require("./routers/todoRouter");
 
 app.use(bodyParser.json());
-const TodoRouter = require("./routers/todoRouter");
+
+app.use(cors());
 
 app.use("/api/v1/todo", TodoRouter);
 
