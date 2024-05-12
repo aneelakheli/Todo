@@ -7,10 +7,11 @@ const TodoItem = ({ todo, onDelete, onEdit }) => {
       <div className="todo-content">
         <h3>{todo.name}</h3>
         <p>{todo.description}</p>
-        <p>{todo.dateTime}</p>
+        <p>{todo.dateJoin}</p>
+        <p>{todo.status}</p>
       </div>
       <div className="todo-actions">
-        <button onClick={() => onEdit(todo)}>Edit</button>
+        <button onClick={() => onEdit(todo.id)}>Edit</button>
         <button onClick={() => onDelete(todo.id)}>Delete</button>
       </div>
     </div>

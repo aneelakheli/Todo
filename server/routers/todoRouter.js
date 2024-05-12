@@ -20,7 +20,7 @@ router.post(
 router.get("/:id", getOneTodoController);
 router.patch(
   "/:id",
-  validate(["name", "description", "status"]),
+  validate(["name", "description", "dateJoin", "status"]),
   validator,
   updateTodoController
 );

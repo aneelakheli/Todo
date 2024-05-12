@@ -3,24 +3,24 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const TodoForm = ({ onSubmit, todo }) => {
-  const [name, setName] = useState(todo ? todo.name : "");
-  const [description, setDescription] = useState(todo ? todo.description : "");
-  const [dateTime, setDateTime] = useState(
-    todo ? new Date(todo.dateTime) : new Date()
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [dateJoin, setdateJoin] = useState(
+    todo ? new Date(todo.dateJoin) : new Date()
   );
+  const [status, setStatus] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() !== "" && description.trim() !== "") {
       onSubmit({
-        // id: todo ? todo.id : Date.now(),
         name: name,
         description: description,
-        dateTime: dateTime.toLocaleString(),
+        dateJoin: dateJoin.toLocaleString(),
       });
       setName("");
       setDescription("");
-      setDateTime(new Date());
+      setdateJoin(new Date());
     }
   };
 
@@ -30,6 +30,7 @@ const TodoForm = ({ onSubmit, todo }) => {
         type="text"
         placeholder="Name"
         value={name}
+        name="name"
         onChange={(e) => setName(e.target.value)}
       />
       <input
@@ -39,8 +40,8 @@ const TodoForm = ({ onSubmit, todo }) => {
         onChange={(e) => setDescription(e.target.value)}
       />
       <DatePicker
-        selected={dateTime}
-        onChange={(date) => setDateTime(date)}
+        selected={dateJoin}
+        onChange={(date) => setdateJoin(date)}
         dateFormat="Pp"
         minDate={new Date()}
         minTime={new Date()}

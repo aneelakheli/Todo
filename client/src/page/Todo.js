@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import TodoForm from "../components/todo/TodoForm";
 import TodoList from "../components/todo/TodoList";
+import { todoService } from "../services/todoServices";
 
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);
   const [selectedTodo, setSelectedTodo] = useState(null);
 
   const handleAddTodo = (newTodo) => {
+    console.log({ newTodo });
     setTodos([...todos, newTodo]);
+    todoService.createTodo(newTodo);
   };
 
   const handleEditTodo = (updatedTodo) => {
